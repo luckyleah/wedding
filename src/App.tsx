@@ -5,16 +5,16 @@ const navItems = [
   ['Home', 'home'], ['Events', 'events'], ['Travel', 'travel'], ['RSVP', 'rsvp'],
   ['Wedding Party', 'party'], ['Our Story', 'story'], ['Registry', 'registry'], ['FAQ', 'faq'],
 ] as const
-const imageBase = `${import.meta.env.BASE_URL}images/`
-const heroImage = `${imageBase}save-the-date.png`
-const stationery = {
-  vineTop: `${imageBase}stationery-vine-top.png`,
-  vineBottom: `${imageBase}stationery-vine-bottom.png`,
-  roseBorder: `${imageBase}stationery-rose-border.png`,
+const heroImage = `${import.meta.env.BASE_URL}images/save-the-date.png`
+
+type OrnamentType = 'flower' | 'heart' | 'home' | 'plane'
+
+function Ornament({ type, className = '' }: { type: OrnamentType; className?: string }) {
+  return <span className={`ornament ornament-${type} ${className}`} aria-hidden="true" />
 }
 
 function FloralDivider() {
-  return <div className="floral-divider" aria-hidden="true"><img src={stationery.vineTop} alt="" /></div>
+  return <div className="floral-divider" aria-hidden="true"><Ornament type="flower" /><i /><Ornament type="heart" /><i /><Ornament type="flower" /></div>
 }
 
 function ExternalButton({ href, children, secondary = false }: { href: string; children: string; secondary?: boolean }) {
@@ -26,7 +26,7 @@ function ExternalButton({ href, children, secondary = false }: { href: string; c
 
 function PartyCard({ member }: { member: WeddingPartyMember }) {
   return <article className="party-card">
-    <div className="party-portrait" aria-hidden="true"><img src={member.photo ?? stationery.roseBorder} alt="" /></div>
+    <div className="party-portrait" aria-hidden="true">{member.photo ? <img src={member.photo} alt="" /> : <Ornament type="flower" />}</div>
     <p className="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.relationship}</p>
   </article>
 }
@@ -34,21 +34,22 @@ function PartyCard({ member }: { member: WeddingPartyMember }) {
 function App() {
   return <div className="site-shell">
     <a className="skip-link" href="#home">Skip to content</a>
-    <header className="site-header"><nav aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav><img className="header-stationery-vine" src={stationery.vineTop} alt="" /></header>
+    <header className="site-header"><nav aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav></header>
     <main>
       <section id="home" className="hero-section">
-        <img className="hero-stationery-vine hero-stationery-vine-top" src={stationery.vineTop} alt="" />
+        <div className="hero-vine hero-vine-top" aria-hidden="true"><Ornament type="flower" /><i /><Ornament type="heart" /><i /><Ornament type="flower" /></div>
         <div className="hero-copy">
           <p className="eyebrow">We’re getting married</p><h1>Leah <span>&</span> Peter</h1>
           <p className="hero-date">June 5, 2027 <i>·</i> Johnstown, Ohio</p>
           <p className="intro">We are so happy to celebrate this sweet new chapter with our favorite people.</p>
           <div className="button-row"><a className="button" href="#rsvp">RSVP</a><a className="button button-secondary" href="#travel">Travel details</a></div>
         </div>
-        <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /><img className="hero-rose-border" src={stationery.roseBorder} alt="" /></div>
-        <img className="hero-stationery-vine hero-stationery-vine-bottom" src={stationery.vineBottom} alt="" />
+        <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /><Ornament type="flower" className="hero-flower" /></div>
+        <div className="hero-vine hero-vine-bottom" aria-hidden="true"><Ornament type="flower" /><i /><Ornament type="heart" /><i /><Ornament type="flower" /></div>
       </section>
 
       <section className="welcome-section section-frame">
+        <Ornament type="flower" className="welcome-flower welcome-flower-top" /><Ornament type="flower" className="welcome-flower welcome-flower-bottom" />
         <p className="script-accent">A little love story</p><h2>Welcome to our wedding weekend</h2>
         <p>From FaceTime calls across the miles to the next chapter of forever, we can’t wait to gather with our families and friends in Ohio.</p>
         <a className="text-link" href="#story">Read our story <span aria-hidden="true">→</span></a>
@@ -56,8 +57,8 @@ function App() {
 
       <section id="events" className="section section-pink">
         <div className="section-heading"><p className="eyebrow">The weekend</p><h2>Events</h2><p>Save the date for a weekend full of love, laughter, and celebration.</p></div>
-        <div className="timeline">{wedding.events.map((event) => <article className="timeline-item" key={event.title}>
-          <div className="timeline-marker" aria-hidden="true" />
+        <div className="timeline">{wedding.events.map((event, index) => <article className="timeline-item" key={event.title}>
+          <div className="timeline-marker" aria-hidden="true"><Ornament type={index === 1 ? 'heart' : 'flower'} /></div>
           <div><p className="eyebrow">{event.date}</p><h3>{event.title}</h3><p className="event-time">{event.time}</p><p>{event.note}</p></div>
         </article>)}</div>
       </section>
@@ -65,13 +66,13 @@ function App() {
       <section id="travel" className="section travel-section">
         <div className="section-heading"><p className="eyebrow">Make a weekend of it</p><h2>Travel & accommodations</h2></div>
         <div className="travel-grid">
-          <article className="info-card venue-card"><p className="eyebrow">Our venue</p><h3>{wedding.venue.name}</h3><p>{wedding.venue.address}</p><p className="card-copy">Our ceremony and reception will both take place at Lauren Rose Farm. Parking details will be shared closer to the celebration.</p><ExternalButton href={wedding.venue.mapUrl} secondary>Get directions</ExternalButton></article>
-          <article className="info-card"><p className="eyebrow">Official hotel block</p><h3>Residence Inn Columbus Easton</h3><p>Leah & Peter Wedding Block</p><ul><li>Complimentary parking and hot breakfast</li><li>Suite accommodations with full kitchens</li><li>At Easton Town Center, ideal for families</li></ul><p className="deadline">Book by May 7, 2027</p><ExternalButton href={wedding.links.hotel}>Book hotel</ExternalButton></article>
-          <article className="info-card"><p className="eyebrow">Flying in?</p><h3>John Glenn Columbus International Airport</h3><p>CMH is the most convenient airport for our out-of-town guests.</p><p className="card-copy">While you’re nearby, explore Easton Town Center for restaurants, coffee, shopping, entertainment, and a nearby Trader Joe’s.</p></article>
+          <article className="info-card venue-card"><Ornament type="home" className="card-icon" /><p className="eyebrow">Our venue</p><h3>{wedding.venue.name}</h3><p>{wedding.venue.address}</p><p className="card-copy">Our ceremony and reception will both take place at Lauren Rose Farm. Parking details will be shared closer to the celebration.</p><ExternalButton href={wedding.venue.mapUrl} secondary>Get directions</ExternalButton></article>
+          <article className="info-card"><Ornament type="heart" className="card-icon" /><p className="eyebrow">Official hotel block</p><h3>Residence Inn Columbus Easton</h3><p>Leah & Peter Wedding Block</p><ul><li>Complimentary parking and hot breakfast</li><li>Suite accommodations with full kitchens</li><li>At Easton Town Center, ideal for families</li></ul><p className="deadline">Book by May 7, 2027</p><ExternalButton href={wedding.links.hotel}>Book hotel</ExternalButton></article>
+          <article className="info-card"><Ornament type="plane" className="card-icon" /><p className="eyebrow">Flying in?</p><h3>John Glenn Columbus International Airport</h3><p>CMH is the most convenient airport for our out-of-town guests.</p><p className="card-copy">While you’re nearby, explore Easton Town Center for restaurants, coffee, shopping, entertainment, and a nearby Trader Joe’s.</p></article>
         </div>
       </section>
 
-      <section id="rsvp" className="cta-section"><img className="cta-stationery" src={stationery.vineBottom} alt="" /><p className="script-accent">Please join us</p><h2>RSVP</h2><p>We cannot wait to celebrate with you! Please click below to RSVP through The Knot.</p><ExternalButton href={wedding.links.rsvp}>RSVP here</ExternalButton></section>
+      <section id="rsvp" className="cta-section"><Ornament type="flower" className="cta-flower" /><p className="script-accent">Please join us</p><h2>RSVP</h2><p>We cannot wait to celebrate with you! Please click below to RSVP through The Knot.</p><ExternalButton href={wedding.links.rsvp}>RSVP here</ExternalButton></section>
 
       <section id="party" className="section party-section">
         <div className="section-heading"><p className="eyebrow">Our favorite people</p><h2>Wedding party</h2><p>We are so grateful for the people standing beside us.</p></div>
@@ -81,11 +82,11 @@ function App() {
       </section>
 
       <section id="story" className="section story-section">
-        <div className="story-illustration" aria-hidden="true"><img src={stationery.roseBorder} alt="" /></div>
+        <div className="story-illustration" aria-hidden="true"><Ornament type="heart" /><Ornament type="flower" /><Ornament type="flower" /></div>
         <div className="story-copy"><p className="script-accent">How it all began</p><h2>Our story</h2><p>Our story began in winter 2023 with FaceTime calls from thousands of miles apart after meeting online. When Leah returned to Ohio Northern University, Peter was there with pink roses, chocolates, and a warm smile.</p><p>Dates, studying, long conversations, and a shared love for family quickly turned into a life full of road trips, cross-country drives, Florida sunshine, cottage weekends, karaoke, board games, and meaningful time with the people we love.</p><p>Long distance through school breaks, summers, and internships made every reunion sweeter. As we finish our Construction Management degrees and look ahead to a move to Washington State, we are most excited to stop counting down to the next visit and begin a lifetime of coming home to each other.</p></div>
       </section>
 
-      <section id="registry" className="cta-section registry-section"><img className="cta-stationery" src={stationery.vineTop} alt="" /><p className="script-accent">With gratitude</p><h2>Registry</h2><p>Your presence at our wedding is the greatest gift. For those who would like to celebrate with a gift, our registry can be found below.</p><ExternalButton href={wedding.links.registry}>View registry</ExternalButton></section>
+      <section id="registry" className="cta-section registry-section"><Ornament type="heart" className="cta-flower" /><p className="script-accent">With gratitude</p><h2>Registry</h2><p>Your presence at our wedding is the greatest gift. For those who would like to celebrate with a gift, our registry can be found below.</p><ExternalButton href={wedding.links.registry}>View registry</ExternalButton></section>
       <section id="faq" className="section faq-section"><div className="section-heading"><p className="eyebrow">Helpful details</p><h2>Frequently asked questions</h2></div><div className="faq-list">{wedding.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>
     </main>
     <footer><FloralDivider /><p className="script-accent">See you in Johnstown</p><p>Leah & Peter · June 5, 2027</p></footer>
