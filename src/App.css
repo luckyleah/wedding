@@ -163,8 +163,13 @@
 .hero-navigation-mobile a:hover,.hero-navigation-mobile a:focus-visible { color:#fff6e7; text-decoration:underline; }
 
 @media(min-width:581px){
-  .hero-navigation-mobile { grid-template-columns:repeat(8,minmax(0,1fr)); gap:.7rem; width:min(100%,70rem); }
+  .hero-navigation-mobile { display:flex; align-items:center; justify-content:space-between; gap:clamp(.75rem,2vw,2rem); width:min(100%,70rem); }
   .hero-navigation-mobile a { font-size:clamp(.75rem,1.1vw,.95rem); white-space:nowrap; }
+}
+
+@media(min-width:581px) and (max-width:900px){
+  .hero-navigation-mobile { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem .5rem; width:min(100%,42rem); }
+  .hero-navigation-mobile a { white-space:normal; }
 }
 
 @media(max-width:580px){
