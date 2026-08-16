@@ -181,6 +181,10 @@
 .hero-copy .hero-names,.hero-names,.hero-photo-row>p,.hero-date { color:var(--brown); }
 .hero-navigation-mobile a { color:var(--brown); }
 .hero-navigation-mobile a:hover,.hero-navigation-mobile a:focus-visible { color:var(--coral); }
+.hero-names text { font-size:88px; }
+.hero-photo-row>p { font-size:40px; }
+.hero-date text { font-size:43px; }
+.hero-navigation-mobile a { font-size:21.33px; }
 
 @media(max-width:580px){
   .hero-copy .hero-names,.hero-names { width:min(100%,365px); height:7rem; }
@@ -190,6 +194,6 @@
   .hero-image-wrap { height:120px; }
   .hero-date { width:225px; }
   .hero-date text { font-size:39px; }
-  .hero-navigation-mobile { width:min(100%,25rem); margin-top:.4rem; }
-  .hero-navigation-mobile a { font-size:.75rem; padding:.2rem; }
+  .hero-navigation-mobile { grid-template-columns:repeat(2,minmax(0,1fr)); width:min(100%,22rem); margin-top:.4rem; }
+  .hero-navigation-mobile a { font-size:16pt; padding:.2rem; }
 }
