@@ -5,6 +5,7 @@ const navItems = [
   ['Home', 'home'], ['Events', 'events'], ['Travel', 'travel'], ['RSVP', 'rsvp'],
   ['Wedding Party', 'party'], ['Our Story', 'story'], ['Registry', 'registry'], ['FAQ', 'faq'],
 ] as const
+const heroImage = `${import.meta.env.BASE_URL}images/save-the-date.png`
 
 function FloralDivider() {
   return <div className="floral-divider" aria-hidden="true"><span>✿</span><i /><b>♥</b><i /><span>✿</span></div>
@@ -40,7 +41,7 @@ function App() {
           <p className="intro">We are so happy to celebrate this sweet new chapter with our favorite people.</p>
           <div className="button-row"><a className="button" href="#rsvp">RSVP</a><a className="button button-secondary" href="#travel">Travel details</a></div>
         </div>
-        <div className="hero-image-wrap"><img src="/images/save-the-date.png" alt="Leah and Peter smiling together outdoors" /></div>
+        <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /></div>
         <div className="hero-vine hero-vine-bottom" aria-hidden="true">❀ ── ✿ ── ♥ ── ✿ ── ❀</div>
       </section>
 
