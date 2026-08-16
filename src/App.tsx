@@ -53,7 +53,16 @@ function App() {
         <img className="hero-floral-frame" src={heroFrame} alt="" />
         <img className="hero-floral-frame hero-floral-frame-mobile" src={stationery.mobileFrame} alt="" />
         <div className="hero-copy">
-          <p className="hero-welcome"><span>Welcome to the</span><span>wedding website of</span></p>
+          <div className="hero-welcome" role="img" aria-label="Welcome to the wedding website of">
+            <svg viewBox="0 0 600 125" aria-hidden="true">
+              <path id="hero-welcome-curve-top" d="M 125 105 Q 300 32 475 105" fill="none" />
+              <text><textPath href="#hero-welcome-curve-top" startOffset="50%" textAnchor="middle">Welcome to the</textPath></text>
+            </svg>
+            <svg viewBox="0 0 600 125" aria-hidden="true">
+              <path id="hero-welcome-curve-bottom" d="M 22 108 Q 300 25 578 108" fill="none" />
+              <text><textPath href="#hero-welcome-curve-bottom" startOffset="50%" textAnchor="middle">wedding website of</textPath></text>
+            </svg>
+          </div>
           <h1 className="hero-names" aria-label="Leah and Peter">
             <svg viewBox="0 0 600 150" aria-hidden="true">
               <path id="hero-name-curve" d="M 34 117 Q 300 21 566 117" fill="none" />
@@ -69,6 +78,7 @@ function App() {
               <text><textPath href="#hero-date-curve" startOffset="50%" textAnchor="middle">June 5, 2027</textPath></text>
             </svg>
           </p>
+          <div className="hero-actions"><a className="button" href="#rsvp">RSVP</a></div>
         </div>
       </section>
 
