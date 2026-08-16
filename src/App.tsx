@@ -53,13 +53,17 @@ function App() {
         <img className="hero-floral-frame" src={heroFrame} alt="" />
         <img className="hero-floral-frame hero-floral-frame-mobile" src={stationery.mobileFrame} alt="" />
         <div className="hero-copy">
-          <p className="eyebrow">We’re getting married</p><h1>Leah <span>&</span> Peter</h1>
+          <p className="hero-welcome"><span>Welcome to the</span><span>wedding website</span><span>of</span></p>
+          <h1 className="hero-names" aria-label="Leah and Peter">
+            <svg viewBox="0 0 600 150" aria-hidden="true">
+              <path id="hero-name-curve" d="M 34 117 Q 300 21 566 117" fill="none" />
+              <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter</textPath></text>
+            </svg>
+          </h1>
         </div>
         <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /></div>
         <div className="hero-details">
-          <p className="hero-date">June 5, 2027 <i>·</i> Johnstown, Ohio</p>
-          <p className="intro">We are so happy to celebrate this sweet new chapter with our favorite people.</p>
-          <div className="button-row"><a className="button" href="#rsvp">RSVP</a><a className="button button-secondary" href="#travel">Travel details</a></div>
+          <p className="hero-date">June 5, 2027</p>
         </div>
       </section>
 
