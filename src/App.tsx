@@ -18,7 +18,7 @@ const stationery = {
   sendoff: `${import.meta.env.BASE_URL}images/stationery-sendoff.png`,
   venueMap: `${import.meta.env.BASE_URL}images/stationery-venue-map.png`,
 }
-const eventArt = [stationery.rings, stationery.farmhouse, stationery.heartSprig, stationery.sendoff]
+const eventArt = [stationery.rings, stationery.farmhouse, stationery.sendoff]
 
 type OrnamentType = 'flower' | 'heart' | 'home' | 'plane'
 
@@ -77,10 +77,6 @@ function App() {
             <img className="event-art" src={eventArt[index]} alt="" />
             <div><p className="eyebrow">{event.date}</p><h3>{event.title}</h3><p className="event-time">{event.time}</p><p>{event.note}</p></div>
           </article>)}</div>
-          <aside className="venue-map-card">
-            <img src={stationery.venueMap} alt="Illustrated map of Lauren Rose Farm" />
-            <div><p className="eyebrow">All weekend long</p><h3>Lauren Rose Farm</h3><p>{wedding.venue.address}</p><ExternalButton href={wedding.venue.mapUrl} secondary>Get directions</ExternalButton></div>
-          </aside>
         </div>
       </section>
 

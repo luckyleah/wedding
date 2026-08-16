@@ -22,12 +22,6 @@ export const wedding = {
   },
   events: [
     {
-      title: 'Rehearsal Dinner',
-      date: 'Friday, June 4',
-      time: 'Time to be announced',
-      note: 'Lauren Rose Farm · By invitation only',
-    },
-    {
       title: 'Ceremony',
       date: 'Saturday, June 5',
       time: '4:30 PM',
