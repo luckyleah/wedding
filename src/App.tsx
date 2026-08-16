@@ -55,7 +55,7 @@ function App() {
           <h1 className="hero-names" aria-label="Leah and Peter's">
             <svg viewBox="0 0 600 150" aria-hidden="true">
               <path id="hero-name-curve" d="M 0 125 Q 300 4 600 125" fill="none" />
-              <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter's</textPath></text>
+              <text textLength="525" lengthAdjust="spacingAndGlyphs"><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter's</textPath></text>
             </svg>
           </h1>
           <div className="hero-photo-row">
@@ -66,7 +66,7 @@ function App() {
           <p className="hero-date" aria-label="June 5, 2027">
             <svg viewBox="0 0 320 95" aria-hidden="true">
               <path id="hero-date-curve" d="M 10 47 Q 160 88 310 47" fill="none" />
-              <text><textPath href="#hero-date-curve" startOffset="50%" textAnchor="middle">June 5, 2027</textPath></text>
+              <text textLength="265" lengthAdjust="spacingAndGlyphs"><textPath href="#hero-date-curve" startOffset="50%" textAnchor="middle">June 5, 2027</textPath></text>
             </svg>
           </p>
           <nav className="hero-navigation hero-navigation-mobile" aria-label="Mobile navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>

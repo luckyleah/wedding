@@ -163,8 +163,8 @@
 .hero-navigation-mobile a:hover,.hero-navigation-mobile a:focus-visible { color:#fff6e7; text-decoration:underline; }
 
 @media(min-width:581px){
-  .hero-navigation-mobile { display:flex; align-items:center; justify-content:space-between; gap:clamp(.75rem,2vw,2rem); width:min(100%,70rem); }
-  .hero-navigation-mobile a { font-size:clamp(.75rem,1.1vw,.95rem); white-space:nowrap; }
+  .hero-navigation-mobile { display:flex; flex-wrap:nowrap; align-items:center; justify-content:space-between; gap:clamp(.5rem,1vw,1rem); width:min(100%,70rem); }
+  .hero-navigation-mobile a { font-size:clamp(.75rem,1.1vw,.95rem); font-weight:800; white-space:nowrap; }
 }
 
 @media(min-width:581px) and (max-width:900px){
