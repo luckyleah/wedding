@@ -59,24 +59,27 @@
 
 .hero-section { gap:.25rem; min-height:clamp(680px,56vw,820px); }
 .hero-copy { display:flex; flex-direction:column; align-items:center; width:min(100%,39rem); }
-.hero-welcome { display:flex; flex-direction:column; align-items:center; margin:0; color:#1f1a18; font:clamp(1.55rem,3vw,2.75rem)/.92 var(--script); }
+.hero-welcome { display:flex; flex-direction:column; align-items:center; width:clamp(21rem,42vw,36rem); margin:0; color:#1f1a18; font:clamp(1.7rem,3.3vw,3rem)/.9 var(--script); }
 .hero-welcome span:nth-child(1) { transform:rotate(-3deg); }
 .hero-welcome span:nth-child(2) { transform:rotate(1deg); }
-.hero-welcome span:nth-child(3) { transform:rotate(3deg); }
 .hero-copy .hero-names { width:100%; height:clamp(5.6rem,10vw,8.75rem); margin:.15rem 0 0; color:#1f1a18; font-size:inherit; line-height:1; }
 .hero-names svg { display:block; width:100%; height:100%; overflow:visible; }
 .hero-names text { fill:currentColor; font-family:var(--script); font-size:76px; }
 .hero-image-wrap { width:clamp(165px,18vw,240px); margin:.1rem auto; }
-.hero-date { margin:.25rem 0 0; color:#1f1a18; font:clamp(1.45rem,2.8vw,2.45rem)/1 var(--script); transform:rotate(-2deg); }
+.hero-image-wrap::before { display:none; }
+.hero-date { width:clamp(180px,21vw,280px); margin:.1rem auto 0; color:#1f1a18; }
+.hero-date svg { display:block; width:100%; height:auto; overflow:visible; }
+.hero-date text { fill:currentColor; font-family:var(--script); font-size:34px; }
 
 @media(max-width:580px){
   .site-header { padding:.85rem .65rem 1rem; }
   .site-header nav { gap:.55rem .2rem; }
   .site-header nav a { font-size:.62rem; letter-spacing:.015em; }
   .hero-section { min-height:690px; gap:.15rem; padding:5.5rem 2.25rem 5rem; }
-  .hero-welcome { font-size:1.65rem; }
+  .hero-welcome { width:min(100%,22rem); font-size:1.75rem; }
   .hero-copy .hero-names { height:5.8rem; margin-top:.25rem; }
   .hero-names text { font-size:70px; }
   .hero-image-wrap { width:min(42vw,175px); margin:.2rem auto; }
-  .hero-date { margin-top:.35rem; font-size:1.7rem; }
+  .hero-date { width:min(58vw,225px); margin-top:.25rem; }
+  .hero-date text { font-size:33px; }
 }
