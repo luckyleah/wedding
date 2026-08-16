@@ -47,7 +47,6 @@ function PartyCard({ member }: { member: WeddingPartyMember }) {
 function App() {
   return <div className="site-shell">
     <a className="skip-link" href="#home">Skip to content</a>
-    <header className="site-header"><nav aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav></header>
     <main>
       <section id="home" className="hero-section">
         <img className="hero-floral-frame" src={heroFrame} alt="" />
@@ -80,6 +79,7 @@ function App() {
           </p>
           <div className="hero-actions"><a className="button" href="#rsvp">RSVP</a></div>
         </div>
+        <nav className="hero-navigation" aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
       </section>
 
       <section className="welcome-section section-frame">

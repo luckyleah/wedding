@@ -73,12 +73,15 @@
 .hero-date text { fill:currentColor; font-family:var(--script); font-size:34px; }
 .hero-actions { margin-top:-.2rem; text-align:center; }
 .hero-actions .button { min-width:8.5rem; padding:.65rem 1.35rem; }
+.hero-navigation { position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.55rem 1.25rem; width:min(100%,34rem); margin:.25rem auto 0; }
+.hero-navigation a { color:#1f1a18; font-family:var(--serif); font-size:.76rem; font-weight:700; letter-spacing:0; text-align:center; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.2rem; text-transform:uppercase; }
+.hero-navigation a:hover,.hero-navigation a:focus-visible { color:var(--coral); }
 
 @media(max-width:580px){
   .site-header { padding:.85rem .65rem 1rem; }
   .site-header nav { gap:.55rem .2rem; }
   .site-header nav a { font-size:.62rem; letter-spacing:.015em; }
-  .hero-section { min-height:690px; gap:.15rem; padding:5.5rem 2.25rem 5rem; }
+  .hero-section { min-height:820px; gap:.15rem; padding:4.75rem 2.25rem 4.5rem; }
   .hero-welcome { width:min(100%,23rem); }
   .hero-welcome text { font-size:39px; }
   .hero-copy .hero-names { height:5.8rem; margin-top:.25rem; }
@@ -88,4 +91,6 @@
   .hero-date text { font-size:33px; }
   .hero-actions { margin-top:-.1rem; }
   .hero-actions .button { min-width:7.8rem; padding:.58rem 1.1rem; font-size:.7rem; }
+  .hero-navigation { gap:.45rem .25rem; width:100%; margin-top:.35rem; }
+  .hero-navigation a { font-size:.58rem; letter-spacing:.01em; }
 }
