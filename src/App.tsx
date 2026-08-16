@@ -3,7 +3,7 @@ import { wedding, type WeddingPartyMember } from './content'
 
 const navItems = [
   ['Home', 'home'], ['Events', 'events'], ['Travel', 'travel'], ['RSVP', 'rsvp'],
-  ['Wedding Party', 'party'], ['Registry', 'registry'], ['FAQ', 'faq'],
+  ['Wedding Party', 'party'], ['Our Story', 'story'], ['Registry', 'registry'], ['FAQ', 'faq'],
 ] as const
 const heroImage = `${import.meta.env.BASE_URL}images/leah-and-peter.png`
 const heroFrame = `${import.meta.env.BASE_URL}images/homepage-floral-frame.png`
@@ -55,8 +55,8 @@ function App() {
         <div className="hero-main">
           <h1 className="hero-names" aria-label="Leah and Peter's">
             <svg viewBox="0 0 600 150" aria-hidden="true">
-              <path id="hero-name-curve" d="M 34 117 Q 300 21 566 117" fill="none" />
-              <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter’s</textPath></text>
+              <path id="hero-name-curve" d="M 0 125 Q 300 4 600 125" fill="none" />
+              <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter's</textPath></text>
             </svg>
           </h1>
           <div className="hero-photo-row">

@@ -129,11 +129,11 @@
 /* Dedicated navigation band above the floral invitation. */
 .site-header { position:relative; z-index:2; padding:.85rem clamp(.75rem,3vw,2rem); background:#f4bbb9; border:0; }
 .site-header::after { display:none; }
-.site-header nav { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:.5rem; width:100%; max-width:none; margin:0; }
+.site-header nav { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:.5rem; width:100%; max-width:none; margin:0; }
 .site-header nav a { color:#fff; font-family:var(--serif); font-size:clamp(.64rem,1.15vw,.9rem); font-weight:700; letter-spacing:0; text-align:center; text-decoration:none; text-transform:uppercase; }
 .site-header nav a:hover,.site-header nav a:focus-visible { color:#fff6e7; text-decoration:underline; }
-.hero-main { margin-top:clamp(4.5rem,9vw,7rem); }
-.hero-names text { font-size:87px; }
+.hero-main { margin-top:clamp(6rem,12vw,9rem); }
+.hero-names text { font-size:78px; }
 .hero-photo-row { justify-items:center; }
 .hero-image-wrap { justify-self:center; }
 
@@ -141,6 +141,6 @@
   .site-header { padding:.75rem .45rem; }
   .site-header nav { grid-template-columns:repeat(4,minmax(0,1fr)); gap:.55rem .12rem; }
   .site-header nav a { font-size:.58rem; }
-  .hero-main { margin-top:6rem; }
-  .hero-names text { font-size:72px; }
+  .hero-main { margin-top:7rem; }
+  .hero-names text { font-size:68px; }
 }
