@@ -7,6 +7,12 @@ const navItems = [
 ] as const
 const heroImage = `${import.meta.env.BASE_URL}images/save-the-date.png`
 const heroFrame = `${import.meta.env.BASE_URL}images/homepage-floral-frame.png`
+const stationery = {
+  mobileFrame: `${import.meta.env.BASE_URL}images/homepage-floral-frame-mobile.png`,
+  rose: `${import.meta.env.BASE_URL}images/stationery-rose.png`,
+  vine: `${import.meta.env.BASE_URL}images/stationery-element-2.png`,
+  heart: `${import.meta.env.BASE_URL}images/stationery-heart.png`,
+}
 
 type OrnamentType = 'flower' | 'heart' | 'home' | 'plane'
 
@@ -15,7 +21,7 @@ function Ornament({ type, className = '' }: { type: OrnamentType; className?: st
 }
 
 function FloralDivider() {
-  return <div className="floral-divider" aria-hidden="true"><Ornament type="flower" /><i /><Ornament type="heart" /><i /><Ornament type="flower" /></div>
+  return <div className="floral-divider" aria-hidden="true"><img src={stationery.vine} alt="" /><img src={stationery.heart} alt="" /><img src={stationery.vine} alt="" /></div>
 }
 
 function ExternalButton({ href, children, secondary = false }: { href: string; children: string; secondary?: boolean }) {
@@ -27,7 +33,7 @@ function ExternalButton({ href, children, secondary = false }: { href: string; c
 
 function PartyCard({ member }: { member: WeddingPartyMember }) {
   return <article className="party-card">
-    <div className="party-portrait" aria-hidden="true">{member.photo ? <img src={member.photo} alt="" /> : <Ornament type="flower" />}</div>
+    <div className="party-portrait" aria-hidden="true">{member.photo ? <img src={member.photo} alt="" /> : <img className="party-rose" src={stationery.rose} alt="" />}</div>
     <p className="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.relationship}</p>
   </article>
 }
@@ -39,7 +45,7 @@ function App() {
     <main>
       <section id="home" className="hero-section">
         <img className="hero-floral-frame" src={heroFrame} alt="" />
-        <img className="hero-floral-frame hero-floral-frame-bottom" src={heroFrame} alt="" />
+        <img className="hero-floral-frame hero-floral-frame-mobile" src={stationery.mobileFrame} alt="" />
         <div className="hero-copy">
           <p className="eyebrow">We’re getting married</p><h1>Leah <span>&</span> Peter</h1>
         </div>
