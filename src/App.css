@@ -97,7 +97,6 @@
 
 /* Floral invitation hero, following the supplied reference composition. */
 .hero-section { display:block; min-height:clamp(630px,57vw,770px); padding:1rem clamp(1rem,4vw,4rem) 2rem; background:#f4bbb9; }
-.hero-floral-frame:not(.hero-floral-frame-mobile) { object-fit:cover; }
 .hero-navigation { grid-template-columns:repeat(7,minmax(0,1fr)); width:100%; margin:0 auto; }
 .hero-navigation a { color:#fff; font-family:var(--serif); font-size:clamp(.64rem,1.2vw,.9rem); }
 .hero-navigation a:hover,.hero-navigation a:focus-visible { color:#fff6e7; }
