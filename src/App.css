@@ -113,6 +113,10 @@
 .hero-date text { font-size:37px; }
 .hero-actions { display:none; }
 
+@media(min-width:581px){
+  .hero-floral-frame:not(.hero-floral-frame-mobile) { transform:scale(3.3); }
+}
+
 @media(max-width:580px){
   .hero-section { min-height:725px; padding:1rem .65rem 2rem; }
   .hero-navigation { grid-template-columns:repeat(4,minmax(0,1fr)); gap:.55rem .15rem; }
