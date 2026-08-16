@@ -17,6 +17,10 @@ npm run build
 
 The `dist` directory can be deployed to any static host.
 
+## GitHub Pages
+
+Pushing to `master` automatically builds and deploys the site with the workflow in `.github/workflows/deploy-pages.yml`. In the repository's **Settings → Pages**, set **Source** to **GitHub Actions**. The published site will be available at `https://luckyleah.github.io/wedding/`.
+
 ## Updating wedding details
 
 All guest-facing details are centralized in `src/content.ts`, including:
