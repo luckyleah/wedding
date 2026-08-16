@@ -12,7 +12,13 @@ const stationery = {
   rose: `${import.meta.env.BASE_URL}images/stationery-rose.png`,
   vine: `${import.meta.env.BASE_URL}images/stationery-element-2.png`,
   heart: `${import.meta.env.BASE_URL}images/stationery-heart.png`,
+  heartSprig: `${import.meta.env.BASE_URL}images/stationery-heart-sprig.png`,
+  farmhouse: `${import.meta.env.BASE_URL}images/stationery-farmhouse.png`,
+  rings: `${import.meta.env.BASE_URL}images/stationery-rings.png`,
+  sendoff: `${import.meta.env.BASE_URL}images/stationery-sendoff.png`,
+  venueMap: `${import.meta.env.BASE_URL}images/stationery-venue-map.png`,
 }
+const eventArt = [stationery.rings, stationery.farmhouse, stationery.heartSprig, stationery.sendoff]
 
 type OrnamentType = 'flower' | 'heart' | 'home' | 'plane'
 
@@ -66,18 +72,24 @@ function App() {
 
       <section id="events" className="section section-pink">
         <div className="section-heading"><p className="eyebrow">The weekend</p><h2>Events</h2><p>Save the date for a weekend full of love, laughter, and celebration.</p></div>
-        <div className="timeline">{wedding.events.map((event, index) => <article className="timeline-item" key={event.title}>
-          <div className="timeline-marker" aria-hidden="true"><Ornament type={index === 1 ? 'heart' : 'flower'} /></div>
-          <div><p className="eyebrow">{event.date}</p><h3>{event.title}</h3><p className="event-time">{event.time}</p><p>{event.note}</p></div>
-        </article>)}</div>
+        <div className="events-layout">
+          <div className="timeline">{wedding.events.map((event, index) => <article className="timeline-item" key={event.title}>
+            <img className="event-art" src={eventArt[index]} alt="" />
+            <div><p className="eyebrow">{event.date}</p><h3>{event.title}</h3><p className="event-time">{event.time}</p><p>{event.note}</p></div>
+          </article>)}</div>
+          <aside className="venue-map-card">
+            <img src={stationery.venueMap} alt="Illustrated map of Lauren Rose Farm" />
+            <div><p className="eyebrow">All weekend long</p><h3>Lauren Rose Farm</h3><p>{wedding.venue.address}</p><ExternalButton href={wedding.venue.mapUrl} secondary>Get directions</ExternalButton></div>
+          </aside>
+        </div>
       </section>
 
       <section id="travel" className="section travel-section">
         <div className="section-heading"><p className="eyebrow">Make a weekend of it</p><h2>Travel & accommodations</h2></div>
         <div className="travel-grid">
-          <article className="info-card venue-card"><Ornament type="home" className="card-icon" /><p className="eyebrow">Our venue</p><h3>{wedding.venue.name}</h3><p>{wedding.venue.address}</p><p className="card-copy">Our ceremony and reception will both take place at Lauren Rose Farm. Parking details will be shared closer to the celebration.</p><ExternalButton href={wedding.venue.mapUrl} secondary>Get directions</ExternalButton></article>
-          <article className="info-card"><Ornament type="heart" className="card-icon" /><p className="eyebrow">Official hotel block</p><h3>Residence Inn Columbus Easton</h3><p>Leah & Peter Wedding Block</p><ul><li>Complimentary parking and hot breakfast</li><li>Suite accommodations with full kitchens</li><li>At Easton Town Center, ideal for families</li></ul><p className="deadline">Book by May 7, 2027</p><ExternalButton href={wedding.links.hotel}>Book hotel</ExternalButton></article>
-          <article className="info-card"><Ornament type="plane" className="card-icon" /><p className="eyebrow">Flying in?</p><h3>John Glenn Columbus International Airport</h3><p>CMH is the most convenient airport for our out-of-town guests.</p><p className="card-copy">While you’re nearby, explore Easton Town Center for restaurants, coffee, shopping, entertainment, and a nearby Trader Joe’s.</p></article>
+          <article className="info-card venue-card"><img className="travel-art" src={stationery.farmhouse} alt="" /><p className="eyebrow">Our venue</p><h3>{wedding.venue.name}</h3><p>{wedding.venue.address}</p><p className="card-copy">Our ceremony and reception will both take place at Lauren Rose Farm. Parking details will be shared closer to the celebration.</p><ExternalButton href={wedding.venue.mapUrl} secondary>Get directions</ExternalButton></article>
+          <article className="info-card"><img className="travel-art travel-art-heart" src={stationery.heartSprig} alt="" /><p className="eyebrow">Official hotel block</p><h3>Residence Inn Columbus Easton</h3><p>Leah & Peter Wedding Block</p><ul><li>Complimentary parking and hot breakfast</li><li>Suite accommodations with full kitchens</li><li>At Easton Town Center, ideal for families</li></ul><p className="deadline">Book by May 7, 2027</p><ExternalButton href={wedding.links.hotel}>Book hotel</ExternalButton></article>
+          <article className="info-card"><img className="travel-art travel-art-vine" src={stationery.vine} alt="" /><p className="eyebrow">Flying in?</p><h3>John Glenn Columbus International Airport</h3><p>CMH is the most convenient airport for our out-of-town guests.</p><p className="card-copy">While you’re nearby, explore Easton Town Center for restaurants, coffee, shopping, entertainment, and a nearby Trader Joe’s.</p></article>
         </div>
       </section>
 
