@@ -3,7 +3,7 @@ import { wedding, type WeddingPartyMember } from './content'
 
 const navItems = [
   ['Home', 'home'], ['Events', 'events'], ['Travel', 'travel'], ['RSVP', 'rsvp'],
-  ['Wedding Party', 'party'], ['Our Story', 'story'], ['Registry', 'registry'], ['FAQ', 'faq'],
+  ['Wedding Party', 'party'], ['Registry', 'registry'], ['FAQ', 'faq'],
 ] as const
 const heroImage = `${import.meta.env.BASE_URL}images/leah-and-peter.png`
 const heroFrame = `${import.meta.env.BASE_URL}images/homepage-floral-frame.png`
@@ -51,35 +51,26 @@ function App() {
       <section id="home" className="hero-section">
         <img className="hero-floral-frame" src={heroFrame} alt="" />
         <img className="hero-floral-frame hero-floral-frame-mobile" src={stationery.mobileFrame} alt="" />
-        <div className="hero-copy">
-          <div className="hero-welcome" role="img" aria-label="Welcome to the wedding website of">
-            <svg viewBox="0 0 600 125" aria-hidden="true">
-              <path id="hero-welcome-curve-top" d="M 125 105 Q 300 32 475 105" fill="none" />
-              <text><textPath href="#hero-welcome-curve-top" startOffset="50%" textAnchor="middle">Welcome to the</textPath></text>
-            </svg>
-            <svg viewBox="0 0 600 125" aria-hidden="true">
-              <path id="hero-welcome-curve-bottom" d="M 22 108 Q 300 25 578 108" fill="none" />
-              <text><textPath href="#hero-welcome-curve-bottom" startOffset="50%" textAnchor="middle">wedding website of</textPath></text>
-            </svg>
-          </div>
+        <nav className="hero-navigation" aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
+        <div className="hero-main">
           <h1 className="hero-names" aria-label="Leah and Peter">
             <svg viewBox="0 0 600 150" aria-hidden="true">
               <path id="hero-name-curve" d="M 34 117 Q 300 21 566 117" fill="none" />
               <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter</textPath></text>
             </svg>
           </h1>
-        </div>
-        <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /></div>
-        <div className="hero-details">
+          <div className="hero-photo-row">
+            <p>wedding</p>
+            <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /></div>
+            <p>website</p>
+          </div>
           <p className="hero-date" aria-label="June 5, 2027">
             <svg viewBox="0 0 320 95" aria-hidden="true">
               <path id="hero-date-curve" d="M 10 47 Q 160 88 310 47" fill="none" />
               <text><textPath href="#hero-date-curve" startOffset="50%" textAnchor="middle">June 5, 2027</textPath></text>
             </svg>
           </p>
-          <div className="hero-actions"><a className="button" href="#rsvp">RSVP</a></div>
         </div>
-        <nav className="hero-navigation" aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
       </section>
 
       <section className="welcome-section section-frame">
