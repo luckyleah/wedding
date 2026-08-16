@@ -133,6 +133,7 @@
 .site-header nav a { color:#fff; font-family:var(--serif); font-size:clamp(.64rem,1.15vw,.9rem); font-weight:700; letter-spacing:0; text-align:center; text-decoration:none; text-transform:uppercase; }
 .site-header nav a:hover,.site-header nav a:focus-visible { color:#fff6e7; text-decoration:underline; }
 .hero-main { margin-top:clamp(6rem,12vw,9rem); }
+.hero-names { transform:translateY(clamp(1.5rem,3vw,2.75rem)); }
 .hero-names text { font-size:78px; }
 .hero-photo-row { justify-items:center; }
 .hero-image-wrap { justify-self:center; }
@@ -142,5 +143,6 @@
   .site-header nav { grid-template-columns:repeat(4,minmax(0,1fr)); gap:.55rem .12rem; }
   .site-header nav a { font-size:.58rem; }
   .hero-main { margin-top:7rem; }
+  .hero-names { transform:translateY(1.35rem); }
   .hero-names text { font-size:68px; }
 }
