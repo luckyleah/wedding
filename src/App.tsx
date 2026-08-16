@@ -6,6 +6,7 @@ const navItems = [
   ['Wedding Party', 'party'], ['Our Story', 'story'], ['Registry', 'registry'], ['FAQ', 'faq'],
 ] as const
 const heroImage = `${import.meta.env.BASE_URL}images/save-the-date.png`
+const heroFrame = `${import.meta.env.BASE_URL}images/homepage-floral-frame.png`
 
 type OrnamentType = 'flower' | 'heart' | 'home' | 'plane'
 
@@ -37,15 +38,17 @@ function App() {
     <header className="site-header"><nav aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav></header>
     <main>
       <section id="home" className="hero-section">
-        <div className="hero-vine hero-vine-top" aria-hidden="true"><Ornament type="flower" /><i /><Ornament type="heart" /><i /><Ornament type="flower" /></div>
+        <img className="hero-floral-frame" src={heroFrame} alt="" />
+        <img className="hero-floral-frame hero-floral-frame-bottom" src={heroFrame} alt="" />
         <div className="hero-copy">
           <p className="eyebrow">We’re getting married</p><h1>Leah <span>&</span> Peter</h1>
+        </div>
+        <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /></div>
+        <div className="hero-details">
           <p className="hero-date">June 5, 2027 <i>·</i> Johnstown, Ohio</p>
           <p className="intro">We are so happy to celebrate this sweet new chapter with our favorite people.</p>
           <div className="button-row"><a className="button" href="#rsvp">RSVP</a><a className="button button-secondary" href="#travel">Travel details</a></div>
         </div>
-        <div className="hero-image-wrap"><img src={heroImage} alt="Leah and Peter smiling together outdoors" /><Ornament type="flower" className="hero-flower" /></div>
-        <div className="hero-vine hero-vine-bottom" aria-hidden="true"><Ornament type="flower" /><i /><Ornament type="heart" /><i /><Ornament type="flower" /></div>
       </section>
 
       <section className="welcome-section section-frame">
