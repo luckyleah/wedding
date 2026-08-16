@@ -18,7 +18,7 @@ export const wedding = {
     hotel:
       'https://www.marriott.com/event-reservations/reservation-link.mi?id=1785783450439&key=GRP&app=resvlink&_branch_match_id=1526358610040761359&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXTywo0MtNLCrKzC8p0UvOz9UvSi0uy0wtN7IHytiCODmZedlqmSm2huYWpuYWxiamBibGlmrZqZW27kEBanVFqWmpQO156fFJRfnlxalFts4ZRfm5qQCEmJtAYQAAAA%3D%3D',
     rsvp: '',
-    registry: '',
+    registry: 'https://www.theknot.com/leahcuppandpeterprice/registry',
   },
   events: [
     {
