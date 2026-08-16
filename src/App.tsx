@@ -5,7 +5,7 @@ const navItems = [
   ['Home', 'home'], ['Events', 'events'], ['Travel', 'travel'], ['RSVP', 'rsvp'],
   ['Wedding Party', 'party'], ['Our Story', 'story'], ['Registry', 'registry'], ['FAQ', 'faq'],
 ] as const
-const heroImage = `${import.meta.env.BASE_URL}images/save-the-date.png`
+const heroImage = `${import.meta.env.BASE_URL}images/leah-and-peter.png`
 const heroFrame = `${import.meta.env.BASE_URL}images/homepage-floral-frame.png`
 const stationery = {
   mobileFrame: `${import.meta.env.BASE_URL}images/homepage-floral-frame-mobile.png`,
