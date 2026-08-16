@@ -176,3 +176,20 @@
   .hero-navigation-mobile { gap:.6rem .25rem; width:min(100%,23rem); margin-top:.25rem; }
   .hero-navigation-mobile a { font-size:.66rem; padding:.15rem; }
 }
+
+/* Hero typography uses the same soft brown as the rest of the site. */
+.hero-copy .hero-names,.hero-names,.hero-photo-row>p,.hero-date { color:var(--brown); }
+.hero-navigation-mobile a { color:var(--brown); }
+.hero-navigation-mobile a:hover,.hero-navigation-mobile a:focus-visible { color:var(--coral); }
+
+@media(max-width:580px){
+  .hero-copy .hero-names,.hero-names { width:min(100%,365px); height:7rem; }
+  .hero-names text { font-size:78px; }
+  .hero-photo-row { grid-template-columns:1fr minmax(195px,58vw) 1fr; }
+  .hero-photo-row>p { font-size:1.5rem; }
+  .hero-image-wrap { height:120px; }
+  .hero-date { width:225px; }
+  .hero-date text { font-size:39px; }
+  .hero-navigation-mobile { width:min(100%,25rem); margin-top:.4rem; }
+  .hero-navigation-mobile a { font-size:.75rem; padding:.2rem; }
+}
