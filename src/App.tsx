@@ -70,6 +70,7 @@ function App() {
               <text><textPath href="#hero-date-curve" startOffset="50%" textAnchor="middle">June 5, 2027</textPath></text>
             </svg>
           </p>
+          <nav className="hero-navigation hero-navigation-mobile" aria-label="Mobile navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
         </div>
       </section>
 
