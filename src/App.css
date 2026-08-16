@@ -162,6 +162,11 @@
 .hero-navigation-mobile a { color:#fff; font-family:var(--serif); font-size:clamp(.78rem,1.35vw,1rem); font-weight:700; letter-spacing:0; padding:.2rem; text-align:center; text-decoration:none; text-transform:uppercase; }
 .hero-navigation-mobile a:hover,.hero-navigation-mobile a:focus-visible { color:#fff6e7; text-decoration:underline; }
 
+@media(min-width:581px){
+  .hero-navigation-mobile { grid-template-columns:repeat(8,minmax(0,1fr)); gap:1rem; width:min(100%,58rem); }
+  .hero-navigation-mobile a { font-size:clamp(.75rem,1.1vw,.95rem); }
+}
+
 @media(max-width:580px){
   .hero-navigation-mobile { gap:.6rem .25rem; width:min(100%,23rem); margin-top:.25rem; }
   .hero-navigation-mobile a { font-size:.66rem; padding:.15rem; }
