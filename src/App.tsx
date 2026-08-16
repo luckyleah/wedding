@@ -47,16 +47,16 @@ function PartyCard({ member }: { member: WeddingPartyMember }) {
 function App() {
   return <div className="site-shell">
     <a className="skip-link" href="#home">Skip to content</a>
+    <header className="site-header"><nav aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav></header>
     <main>
       <section id="home" className="hero-section">
         <img className="hero-floral-frame" src={heroFrame} alt="" />
         <img className="hero-floral-frame hero-floral-frame-mobile" src={stationery.mobileFrame} alt="" />
-        <nav className="hero-navigation" aria-label="Primary navigation">{navItems.map(([label, id]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
         <div className="hero-main">
-          <h1 className="hero-names" aria-label="Leah and Peter">
+          <h1 className="hero-names" aria-label="Leah and Peter's">
             <svg viewBox="0 0 600 150" aria-hidden="true">
               <path id="hero-name-curve" d="M 34 117 Q 300 21 566 117" fill="none" />
-              <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter</textPath></text>
+              <text><textPath href="#hero-name-curve" startOffset="50%" textAnchor="middle">Leah &amp; Peter’s</textPath></text>
             </svg>
           </h1>
           <div className="hero-photo-row">
